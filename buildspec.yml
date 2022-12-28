@@ -1,10 +1,12 @@
-version: 0.1
-
+version: 0.2
 phases:
   install:
+    commands:
+    - echo installing maven...
+    - apt-get update -y
+    - apt-get install -y maven
     runtime-versions:
-      java: openjdk8
-phases:
+      java: corretto11
   build:
     commands:
       - echo Build started on `date`
@@ -16,5 +18,4 @@ phases:
 artifacts:
   files:
     - target/aws-build-sample-maven-project-0.0.1-SNAPSHOT.jar
-    
-    
+#d
