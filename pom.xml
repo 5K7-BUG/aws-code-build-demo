@@ -3,4 +3,7 @@
   <groupId>com.naresh</groupId>
   <artifactId>aws-build-sample-maven-project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+   <java.version>11</java.version>
+</properties>
 </project>
