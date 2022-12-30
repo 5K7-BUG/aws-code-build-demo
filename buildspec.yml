@@ -13,7 +13,7 @@ phases:
       - |-
         set +e
         echo "$CODEBUILD_WEBHOOK_EVENT"  
-        ev=$?
-         if [ "$ev" -eq "0" ]; then
+        ev=$CODEBUILD_WEBHOOK_EVENT
+         if [ "$ev" -eq "PULL_REQUEST_CREATED" ]; then
             echo "run my command `date`"
          fi
