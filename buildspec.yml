@@ -10,13 +10,8 @@ phases:
       java: corretto11
   build:
     commands:
-      - |
-        if [[ " ${CODEBUILD_WEBHOOK_EVENT} " == "PULL_REQUEST_CREATED" ]]; then
-          
-          echo "before merge 'date'
-        else
-          
-          echo "after merge"
-        fi
-      
-      - echo "$CODEBUILD_WEBHOOK_EVENT"  
+      - |-
+        echo "$CODEBUILD_WEBHOOK_EVENT"  
+         if [ "$CODEBUILD_WEBHOOK_EVENT" -eq "PULL_REQUEST_CREATED" ]; then
+            echo "run my command `date`"
+         fi
