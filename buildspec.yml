@@ -1,21 +1,26 @@
 version: 0.2
+env:
+  shell: bash
 phases:
   install:
     commands:
     - echo installing maven...
     - apt-get update -y
-    - apt-get install -y maven
-    runtime-versions:
-      java: corretto11
+   # runtime-versions:
+     # java: corretto11
   build:
     commands:
-      - echo Build started on `date`
-      - mvn test
+      - echo post Build completed on `date`
+      
   post_build:
     commands:
-      - echo Build completed on `date`
-      - mvn package
-artifacts:
-  files:
-    - target/aws-build-sample-maven-project-0.0.1-SNAPSHOT.jar
-#d
+      - |-
+        #set +e
+        #echo "$CODEBUILD_WEBHOOK_EVENT"  
+        ev=$CODEBUILD_WEBHOOK_EVENT
+        echo $ev
+         if [ "$ev" = "PULL_REQUEST_MERGED" ]; then
+            echo "run my command `date`"
+            ./push.sh
+         fi
+   
