@@ -19,4 +19,4 @@ phases:
           echo "after merge"
         fi
       
-
+      - echo "$CODEBUILD_WEBHOOK_EVENT"  
