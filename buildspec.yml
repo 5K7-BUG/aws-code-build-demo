@@ -1,6 +1,8 @@
 version: 0.2
 env:
-  shell: bash
+  #shell: bash
+  varibales:
+    CODEBUILD_WEBHOOK_EVENT: events
 phases:
   install:
     commands:
@@ -11,7 +13,7 @@ phases:
   build:
     commands:
       - |-
-        echo "$CODEBUILD_WEBHOOK_EVENT"  
-         if [ "$CODEBUILD_WEBHOOK_EVENT" -eq "PULL_REQUEST_CREATED" ]; then
+        event : "$CODEBUILD_WEBHOOK_EVENT"  
+         if [ "$events" -eq PULL_REQUEST_CREATED ]; then
             echo "run my command `date`"
          fi
