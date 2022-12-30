@@ -8,19 +8,13 @@ phases:
     - apt-get update -y
    # runtime-versions:
      # java: corretto11
-  build:
-    commands:
-      - echo post Build completed on `date`
-      
-  post_build:
+     
+   build:
     commands:
       - |-
-        #set +e
-        #echo "$CODEBUILD_WEBHOOK_EVENT"  
         ev=$CODEBUILD_WEBHOOK_EVENT
         echo $ev
          if [ "$ev" = "PULL_REQUEST_MERGED" ]; then
             echo "run my command `date`"
-            ./push.sh
          fi
    
