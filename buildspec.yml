@@ -4,18 +4,21 @@ phases:
     commands:
     - echo installing maven...
     - apt-get update -y
-    - apt-get install -y maven
     runtime-versions:
       java: corretto11
   build:
     commands:
-      - echo Build started on `date`
-      - mvn test
-  post_build:
+      phases:
+  build:
     commands:
-      - echo Build completed on `date`
-      - mvn package
-artifacts:
-  files:
-    - target/aws-build-sample-maven-project-0.0.1-SNAPSHOT.jar
-#d
+      - |
+        #!/bin/bash
+        if [[ " ${CODEBUILD_WEBHOOK_EVENT} " == "PULL_REQUEST_CREATED" ]]; then
+          # Iterate only through BRANCH_NAME directory
+          echo "before merge 'date'
+        else
+          # Iterate through both dev and prod directories
+          echo "after merge"
+        fi
+      
+
