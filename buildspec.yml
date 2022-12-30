@@ -15,6 +15,6 @@ phases:
         echo "$CODEBUILD_WEBHOOK_EVENT"  
         ev=$CODEBUILD_WEBHOOK_EVENT
         echo $ev
-         if [ "$ev" -eq PULL_REQUEST_CREATED ]; then
+         if [ "$ev" = "PULL_REQUEST_CREATED" ]; then
             echo "run my command `date`"
          fi
