@@ -1,4 +1,6 @@
 version: 0.2
+env:
+  shell: bash
 phases:
   install:
     commands:
@@ -11,6 +13,7 @@ phases:
     commands:
       - |
         #!/bin/bash
+        set -e
         if [[ " ${CODEBUILD_WEBHOOK_EVENT} " == "PULL_REQUEST_CREATED" ]]; then
           # Iterate only through BRANCH_NAME directory
           echo "before merge 'date'
