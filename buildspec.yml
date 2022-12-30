@@ -6,8 +6,8 @@ phases:
     commands:
     - echo installing maven...
     - apt-get update -y
-    runtime-versions:
-      java: corretto11
+   # runtime-versions:
+     # java: corretto11
   build:
     commands:
       - |-
