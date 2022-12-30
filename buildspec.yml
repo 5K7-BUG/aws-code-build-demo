@@ -6,9 +6,7 @@ phases:
     - apt-get update -y
     runtime-versions:
       java: corretto11
-  build:
-    commands:
-      phases:
+ 
   build:
     commands:
       - |
