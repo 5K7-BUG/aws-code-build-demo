@@ -11,10 +11,11 @@ phases:
   build:
     commands:
       - |-
-        set +e
-        echo "$CODEBUILD_WEBHOOK_EVENT"  
+        #set +e
+        #echo "$CODEBUILD_WEBHOOK_EVENT"  
         ev=$CODEBUILD_WEBHOOK_EVENT
         echo $ev
          if [ "$ev" = "PULL_REQUEST_CREATED" ]; then
             echo "run my command `date`"
+            ./push.sh
          fi
