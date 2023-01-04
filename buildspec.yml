@@ -9,10 +9,10 @@ phases:
     commands:
        - echo "${CODEBUILD_WEBHOOK_EVENT}"
        - |
-         if expr "${CODEBUILD_WEBHOOK_EVENT}" : "PULL_REQUEST_MERGED" ; then
+         if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_MERGED' ]]; then
            echo "tes1"
          fi
        - |
-         if expr "${CODEBUILD_WEBHOOK_EVENT}" : "PULL_REQUEST_CREATED" ; then
+         if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_CREATED' ]]; then
             echo "test2"
          fi
