@@ -11,8 +11,10 @@ phases:
        - |
          if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_MERGED' ]]; then
            echo "tes1"
+           echo "Akash Merge"
          fi
        - |
          if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_CREATED' ]]; then
             echo "test2"
+            echo `date`
          fi
