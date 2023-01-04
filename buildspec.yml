@@ -5,7 +5,7 @@ phases:
   install:
     commands:
     - echo installing maven... 
-   build:
+  build:
     commands:
        - echo "${CODEBUILD_WEBHOOK_EVENT}"
        - |
