@@ -5,7 +5,7 @@ phases:
   install:
     commands:
     - echo installing maven...
-    - apt-get update -y
+    
    build:
     commands:
        - echo "${CODEBUILD_WEBHOOK_EVENT}"
