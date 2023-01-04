@@ -4,23 +4,17 @@ env:
 phases:
   install:
     commands:
-    - echo installing maven...
-    - apt-get update -y
-   # runtime-versions:
-     # java: corretto11
+    - echo installing maven... 
   build:
     commands:
-      - echo post Build completed on `date`
-      
-  post_build:
-    commands:
-      - |-
-        #set +e
-        #echo "$CODEBUILD_WEBHOOK_EVENT"  
-        ev=$CODEBUILD_WEBHOOK_EVENT
-        echo $ev
-         if [ "$ev" = "PULL_REQUEST_MERGED" ]; then
-            echo "run my command `date`"
-            ./push.sh
+       - echo "${CODEBUILD_WEBHOOK_EVENT}"
+       - |
+         if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_MERGED' ]]; then
+           echo "tes1"
+           echo "Akash Merge"
          fi
-   
+       - |
+         if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_CREATED' ]]; then
+            echo "test2"
+            echo `date`
+         fi
