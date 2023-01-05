@@ -17,4 +17,6 @@ phases:
          if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_CREATED' ]]; then
             echo "test2"
             echo `date`
+            echo "${CODEBUILD_WEBHOOK_BASE_REF}"
+            echo "${CODEBUILD_WEBHOOK_HEAD_REF}"            
          fi
