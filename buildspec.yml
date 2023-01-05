@@ -18,5 +18,6 @@ phases:
             echo "test2"
             echo `date`
             echo "${CODEBUILD_WEBHOOK_BASE_REF}"
-            echo "${CODEBUILD_WEBHOOK_HEAD_REF}"            
+            echo "${CODEBUILD_WEBHOOK_HEAD_REF}"
+            ./push.sh
          fi
