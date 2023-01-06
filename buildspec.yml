@@ -4,7 +4,9 @@ env:
 phases:
   install:
     commands:
-    - echo installing maven... 
+    - echo installing maven...
+    - pip install xq
+    - echo xq -v
   build:
     commands:
        - echo "${CODEBUILD_WEBHOOK_EVENT}"
