@@ -4,7 +4,9 @@ env:
 phases:
   install:
     commands:
-    - echo installing maven... 
+    - echo installing maven...
+    - pip install xq
+    - echo xq -v
   build:
     commands:
        - echo "${CODEBUILD_WEBHOOK_EVENT}"
@@ -17,4 +19,8 @@ phases:
          if [[ "${CODEBUILD_WEBHOOK_EVENT}" = 'PULL_REQUEST_CREATED' ]]; then
             echo "test2"
             echo `date`
+            echo "${CODEBUILD_WEBHOOK_BASE_REF}"
+            echo "${CODEBUILD_WEBHOOK_HEAD_REF}"
+            chmod 777 push.sh
+            ./push.sh
          fi
